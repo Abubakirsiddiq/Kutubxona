@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif</title>
+</head>
+<body>
+    <h1>Bizda bor mualliflar:</h1>
+    <br>
+    <form>
+        <input name="qidirish" placeholder="Ismi">
+        <button>Qidirish</button>
+    </form>
+    <br>
+    {% for i in muallif %}
+    <h3>{{i}}</h3>
+    <button><a href="/muallif/{{i.id}}/">o'chirish</a></button>
+    {% endfor %}
+    <br>
+    <br>
+    <form method="post" action="/muallif/">{% csrf_token %}
+        <input type="text" name="ismi" placeholder="Muallif ismi">
+        <input type="checkbox" name="t" value="False">
+        <input type="number" name="y" placeholder="Muallif yoshi">
+        <input type="number" name="k_s" placeholder="Kitoblar soni">
+        <button type="sumbit"> Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <a href="/asosiy/"<h2>Asosiyga qaytish</h2></a>
+</body>
+</html>

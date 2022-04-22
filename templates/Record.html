@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record</title>
+</head>
+<body>
+    <h1>Bizda bor recordlar:</h1>
+    <br>
+    <form>
+        <input name="qidirish" placeholder="nom">
+        <button>Qidirish</button>
+    </form>
+    <br>
+    {% for i in record %}
+    <h3>{{i}}</h3>
+    <button><a href="/record/{{i.id}}/">o'chirish</a></button>
+    {% endfor %}
+    <br>
+    <br>
+    <form method="post" action="/record/">{% csrf_token %}
+        <input type="date" name="sana" placeholder="sana">
+        <select name="s">
+            {% for i in studentlar %}
+            <option value="{{i.id}}">{{i.ism}}</option>
+            {% endfor %}
+        </select>
+        <select name="s">
+            {% for i in studentlar %}
+            <option value="{{i.id}}">{{i.ism}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit"> Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <a href="/asosiy/"><h2>Asosiyga qaytish</h2></a>
+</body>
+</html>
