@@ -23,6 +23,8 @@ class Kitob(models.Model):
     muallif=models.ForeignKey(Muallif, on_delete=models.CASCADE, related_name="m_kitoblari")
     def __str__(self):
         return self.nom
+    class Meta:
+        ordering = ("nom",)
 
 
 class Student(models.Model):
